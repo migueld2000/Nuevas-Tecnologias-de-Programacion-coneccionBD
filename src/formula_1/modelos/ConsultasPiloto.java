@@ -21,7 +21,8 @@ public class ConsultasPiloto extends Modelo_BD {
     public ConsultasPiloto() {
     }
     
-     public boolean insertarPiloto(Piloto piloto){
+     public boolean insertarPiloto(Piloto piloto)
+     {
      
         //almacenar la conexion de la BD
         Connection conexion=conectar();
@@ -38,7 +39,22 @@ public class ConsultasPiloto extends Modelo_BD {
             
             //organizar los datos que se van a ingresar en los interrogantes
             consultaSQL.setString(1,piloto.getId());
-            consultaSQL.setString(1,piloto.get());
+            consultaSQL.setString(2,piloto.getNombre());
+            consultaSQL.setInt(3,piloto.getSalario());
+            consultaSQL.setString(4,piloto.getFechaInicio());
+            consultaSQL.setString(5,piloto.getFechaSalida());
+            consultaSQL.setString(6,piloto.getIdEscuderia());
+            
+            int resultado=consultaSQL.executeUpdate();
+            
+            if (resultado>0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
             
         }
         catch(Exception error)
@@ -48,6 +64,8 @@ public class ConsultasPiloto extends Modelo_BD {
         }
          
      }
-    
+    public Piloto buscarPiloto(int id){
+        
+    }
     
 }

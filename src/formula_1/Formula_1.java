@@ -19,12 +19,7 @@ public class Formula_1 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Modelo_BD modelo =new  Modelo_BD();
-        Vista vista=new Vista();
         
-        vista.setVisible(true);
-        
-        Controlador controlador=new Controlador(modelo,vista);
         
         
     }
